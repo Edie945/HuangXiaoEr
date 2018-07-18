@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.SouSuoActivity">
+
+        <LinearLayout
+            android:background="@mipmap/mine_back"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50">
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp_22"
+                android:src="@mipmap/left_jiantou"
+                />
+
+                <LinearLayout
+                    android:background="@drawable/sousuokuang"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_width="wrap_content"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/et_shopshow_search"
+                        android:layout_width="@dimen/dp_300"
+                        android:layout_height="@dimen/dp_35"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:background="@null"
+                        android:drawablePadding="@dimen/dp_5"
+                        android:hint="请输入商品名称"
+                        android:layout_centerVertical="true"
+                        android:drawableLeft="@mipmap/sousuo"
+                        android:focusableInTouchMode="true"
+                        android:textSize="16sp"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:layout_weight="1"
+                        android:imeOptions="actionSearch" />
+                    <View
+                        android:layout_width="1dip"
+                        android:background="#d3d3d3"
+                        android:layout_height="@dimen/dp_20"
+                        android:layout_gravity="center_vertical"
+                        />
+                    <TextView
+                        android:id="@+id/sousuo_tv"
+                        android:text="搜索"
+                        android:layout_alignRight="@id/et_shopshow_search"
+                        android:layout_marginRight="@dimen/dp_20"
+                        android:textSize="@dimen/sp_16"
+                        android:textColor="#464646"
+                        android:gravity="center"
+                        android:layout_marginLeft="@dimen/sp_20"
+                        android:layout_width="@dimen/dp_50"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>

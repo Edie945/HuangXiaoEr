@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:gravity="center_horizontal"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".view.activity.WelcomeActivity">
+
+    <ImageView
+        android:id="@+id/ivGif"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_300" />
+    <TextView
+        android:id="@+id/btn_welcome"
+        android:layout_centerHorizontal="true"
+        android:background="@mipmap/welcome_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_width="@dimen/dp_150"
+        android:layout_marginBottom="@dimen/dp_100"
+        android:layout_height="@dimen/dp_30" />
+
+</RelativeLayout>

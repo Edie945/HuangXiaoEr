@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/dp_20"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_height="match_parent">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/homedata_img"
+        android:layout_marginLeft="@dimen/dp_20"
+        fresco:actualImageScaleType="centerCrop"
+        fresco:placeholderImage="@mipmap/ic_launcher"
+        fresco:placeholderImageScaleType="centerCrop"
+        fresco:roundedCornerRadius="25dp"
+        android:layout_width="@dimen/dp_150"
+        android:layout_height="@dimen/dp_150" />
+    <TextView
+        android:id="@+id/homedata_name"
+        android:text="123"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textSize="@dimen/sp_20"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:textColor="#f00"
+        android:textSize="@dimen/sp_15"
+        android:textStyle="bold"
+        android:text="123"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:id="@+id/homedata_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/home_add"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/gonggeadd"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</LinearLayout>

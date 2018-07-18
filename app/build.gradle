@@ -1,0 +1,145 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.mob.sdk'
+
+MobSDK {
+    appKey "26c048e6f258c"
+    appSecret "5e33c451d529137ffd62826ba2f361e6"
+    SMSSDK {}
+}
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        multiDexEnabled true
+        applicationId "com.yd.hp.huangxiaoer"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "65ac81a32f9f8c39ebdc386e", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //okhttp
+    implementation 'com.squareup.okhttp3:okhttp:3.2.0'
+
+    //日志拦截器
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+
+    //butterknife 依赖   加入下面这两行代码
+    implementation 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+
+    //网络请求框架Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+
+    //RXjava
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
+    //EventBus通讯
+    implementation 'org.greenrobot:eventbus:3.0.0'
+
+    //Banner
+    implementation 'com.youth.banner:banner:1.4.9'
+
+    //图片加载框架fresco
+    implementation 'com.facebook.fresco:fresco:0.12.0'
+    implementation 'com.facebook.fresco:animated-gif:0.12.0'
+
+    //RecyclerView
+    implementation 'com.android.support:recyclerview-v7:27.1.1-alpha1'
+
+    //BottomBar
+    implementation 'com.hjm:BottomTabBar:1.1.1'
+
+    //autoLayout
+    implementation 'com.zhy:autolayout:1.4.5'
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+
+    //极光推送
+    implementation 'cn.jiguang.sdk:jpush:3.1.1'
+
+    // 此处以JPush 3.1.1 版本为例。
+    implementation 'cn.jiguang.sdk:jcore:1.1.9'
+
+    // 此处以JCore 1.1.9 版本为例。
+
+    //TabLayout
+    implementation 'com.android.support:design:27+'
+
+    //bugly
+    implementation 'com.tencent.bugly:crashreport:latest.release'
+
+    //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.2.0
+    implementation 'com.tencent.bugly:nativecrashreport:latest.release'
+
+    //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
+
+    //Logger
+    implementation 'com.orhanobut:logger:2.2.0'
+
+    //友盟统计
+
+    /*   implementation 'com.umeng.sdk:common:latest.integration'
+                        implementation 'com.umeng.sdk:common:latest.integration'
+                        implementation 'com.umeng.sdk:analytics:latest.integration'*/
+    implementation 'com.android.support:multidex:1.0.3'
+    //版本更新框架
+    implementation 'com.allenliu.versionchecklib:library:2.0.0'
+
+    /**
+     *    版本更新框架
+     */
+//    implementation 'org.xutils:xutils:3.3.40'
+
+    implementation files('libs/open_sdk_r5990_lite.jar')
+    implementation files('libs/SecurityEnvSDK-release-1.1.0.jar')
+    implementation files('libs/umeng-common-1.5.3.jar')
+    implementation files('libs/umeng-share-core-6.9.3.jar')
+    implementation files('libs/umeng-share-QQ-full-6.9.3.jar')
+    implementation files('libs/umeng-share-wechat-full-6.9.3.jar')
+    implementation files('libs/umeng-shareboard-widget-6.9.3.jar')
+    implementation files('libs/umeng-sharetool-6.9.3.jar')
+    implementation files('libs/utdid4all-1.1.5.3_proguard.jar')
+    implementation files('libs/wechat-sdk-android-without-mta-5.1.4.jar')
+    implementation files('libs/AMap3DMap_6.3.0_AMapSearch_6.1.0_AMapLocation_4.1.0_20180619.jar')
+}
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '27.1.1'
+            }
+        }
+    }
+}
